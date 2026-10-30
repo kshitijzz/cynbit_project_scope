@@ -19,6 +19,7 @@ const App = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
+  const API_URL = "https://scopecraft-backend.onrender.com";
   // Calculate the live estimate whenever project type or features change.
   useEffect(() => {
     if (!projectType) {
@@ -36,7 +37,7 @@ const App = () => {
 
       try {
         const response = await axios.post(
-          "http://localhost:8000/api/projects/estimate",
+          `${API_URL}/api/projects/estimate`,
           {
             projectType,
             features,
@@ -101,7 +102,7 @@ const App = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/projects",
+        `${API_URL}/api/projects`,
         {
           projectType,
           features,
